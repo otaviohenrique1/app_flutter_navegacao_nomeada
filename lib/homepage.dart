@@ -1,3 +1,4 @@
+import 'package:app_flutter_navegacao_nomeada/login.dart';
 import 'package:flutter/material.dart';
 
 class Homepage extends StatefulWidget {
@@ -30,18 +31,38 @@ class _HomepageState extends State<Homepage> {
               decoration: BoxDecoration(
                 color: Colors.purple,
               ),
-              child: Text(
-                'Meu incrivel app',
-                style: TextStyle(color: Colors.white),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 16),
+                    child: Icon(
+                      Icons.account_circle,
+                      color: Colors.white,
+                      size: 48,
+                    ),
+                  ),
+                  Text(
+                    'Usuario',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  Text(
+                    'usuario@email.com',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ],
               ),
             ),
             ListTile(
-              title: const Text('Perfil'),
-              onTap: () {},
-            ),
-            ListTile(
               title: const Text('Sair'),
-              onTap: () {},
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Login(),
+                  ),
+                );
+              },
             ),
           ],
         ),
