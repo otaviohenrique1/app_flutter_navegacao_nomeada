@@ -56,12 +56,13 @@ class _HomepageState extends State<Homepage> {
             ListTile(
               title: const Text('Sair'),
               onTap: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Login(),
-                  ),
-                );
+                // Navigator.pushReplacement(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => const Login(),
+                //   ),
+                // );
+                Navigator.of(context).pushReplacementNamed("/login");
               },
             ),
           ],

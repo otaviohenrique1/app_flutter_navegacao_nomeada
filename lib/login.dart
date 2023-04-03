@@ -89,12 +89,14 @@ class _LoginState extends State<Login> {
                         ),
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Homepage(),
-                              ),
-                            );
+                            // Navigator.pushReplacement(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //     builder: (context) => const Homepage(),
+                            //   ),
+                            // );
+                            Navigator.of(context)
+                                .pushReplacementNamed("/homepage");
                           }
                         },
                         child: const Text(
