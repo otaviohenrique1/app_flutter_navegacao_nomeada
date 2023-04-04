@@ -1,5 +1,6 @@
 import 'package:app_flutter_navegacao_nomeada/homepage.dart';
 import 'package:app_flutter_navegacao_nomeada/login.dart';
+import 'package:app_flutter_navegacao_nomeada/teste.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/login": (context) => const Login(),
         "/homepage": (context) => const Homepage(),
+        "/teste": (context) => const Teste(),
       },
     );
   }

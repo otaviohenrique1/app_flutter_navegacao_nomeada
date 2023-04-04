@@ -1,18 +1,16 @@
-import 'package:app_flutter_navegacao_nomeada/teste.dart';
 import 'package:flutter/material.dart';
-// import 'package:app_flutter_navegacao_nomeada/login.dart';
 
-class Homepage extends StatefulWidget {
-  const Homepage({super.key});
+class Teste extends StatefulWidget {
+  const Teste({super.key});
 
   @override
-  State<Homepage> createState() => _HomepageState();
+  State<Teste> createState() => _TesteState();
 }
 
-class _HomepageState extends State<Homepage> {
+class _TesteState extends State<Teste> {
   @override
   Widget build(BuildContext context) {
-    String id = "25";
+    final args = ModalRoute.of(context)!.settings.arguments as ScreenArguments;
 
     return Scaffold(
       appBar: AppBar(
@@ -57,36 +55,25 @@ class _HomepageState extends State<Homepage> {
               ),
             ),
             ListTile(
-              title: const Text('Teste'),
+              title: const Text('Homepage'),
               onTap: () {
-                Navigator.of(context)
-                    .pushNamed("/teste", arguments: ScreenArguments(id));
+                Navigator.of(context).pushNamed("/homepage");
               },
             ),
             ListTile(
               title: const Text('Sair'),
               onTap: () {
-                // Navigator.pushReplacement(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => const Login(),
-                //   ),
-                // );
                 Navigator.of(context).pushReplacementNamed("/login");
               },
             ),
           ],
         ),
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(16),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Item(texto: "Estudar Flutter"),
-              Item(texto: "Estudar Unity"),
-              Item(texto: "Se inscrever na Dotcode"),
-            ],
+          child: Center(
+            child: Text(args.id),
           ),
         ),
       ),
@@ -94,33 +81,8 @@ class _HomepageState extends State<Homepage> {
   }
 }
 
-class Item extends StatelessWidget {
-  const Item({
-    super.key,
-    required this.texto,
-  });
+class ScreenArguments {
+  final String id;
 
-  final String texto;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 10),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          const Padding(
-            padding: EdgeInsets.only(right: 16),
-            child: Icon(
-              Icons.check,
-              color: Colors.black,
-              size: 32,
-            ),
-          ),
-          Text(texto),
-        ],
-      ),
-    );
-  }
+  ScreenArguments(this.id);
 }
